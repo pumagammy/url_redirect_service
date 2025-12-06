@@ -1,0 +1,1 @@
+"dev": "nodemon --watch src --exec \"npx ts-node --loader ts-node/esm\" src/server.ts"
