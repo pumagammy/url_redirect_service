@@ -1,13 +1,21 @@
-
+// src/controllers/redirect-original-url.ts
+import { Request, Response } from "express";
 import { UrlService } from "../services/url-service";
-import { createSuccessResponse, createErrorResponse } from "../utils/response/response-formatters";
-import { ERROR_MSG_SOMETHING_WENT_WRONG, GET_ITEMS_SUCCESS_MESSAGE } from "../utils/response/response-message";
+import { createErrorResponse } from "../utils/response/response-formatters";
+import { ERROR_MSG_SOMETHING_WENT_WRONG } from "../utils/response/response-message";
 
-export const getRedirectToOriginalUrl = async (req: any, res: any) => {
+export const getRedirectToOriginalUrl = async (req: Request, res: Response) => {
   try {
-    const result = await UrlService.redirectToOriginal(req.params.shortCode); 
-     return res.redirect(result);
+    const shortCode = req.params.shortCode;
+    const originalUrl = await UrlService.redirectToOriginal(shortCode);
+    // Ensure absolute URL (with protocol)
+    const redirectUrl = /^https?:\/\//i.test(originalUrl)
+      ? originalUrl
+      : `https://${originalUrl}`;
+
+    return res.redirect(302, redirectUrl);
   } catch (err: any) {
+    console.error("Error in getRedirectToOriginalUrl:", err);
     return createErrorResponse(res, err.message || ERROR_MSG_SOMETHING_WENT_WRONG);
   }
 };
