@@ -8,6 +8,8 @@ export const getRedisClient = (): RedisClientType & RedisLike => {
   if (redisClient) return redisClient;
 
   const url = process.env.REDIS_URL;
+  console.log("redis url===>",url)
+
 
   if (!url) {
     throw new Error("REDIS_URL is not defined in environment variables");

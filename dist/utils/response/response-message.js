@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.INVALID_DATA = exports.DELETED_DATA = exports.CREATED_DATA = exports.UPDATED_MESG = exports.DUPLICATE_ERROR = exports.DATA_EXPIRED = exports.BAD_REQUEST = exports.ALREADY_IN_USE = exports.NO_DATA_FOUND = exports.ERROR_MSG_SOMETHING_WENT_WRONG = exports.INTERNAL_SERVER_ERROR_MESSAGE = exports.GET_ITEMS_SUCCESS_MESSAGE = void 0;
+exports.GET_ITEMS_SUCCESS_MESSAGE = 'Get items successfully fetched';
+exports.INTERNAL_SERVER_ERROR_MESSAGE = 'Internal Server Error';
+exports.ERROR_MSG_SOMETHING_WENT_WRONG = 'Something went wrong!, Please try again Later';
+exports.NO_DATA_FOUND = 'No Data Found';
+exports.ALREADY_IN_USE = 'Data Already In Use';
+exports.BAD_REQUEST = 'Bad Request';
+exports.DATA_EXPIRED = 'Data Expired';
+exports.DUPLICATE_ERROR = 'Duplicate Data';
+exports.UPDATED_MESG = 'Data Updated Successfully';
+exports.CREATED_DATA = 'Data Created Successfully';
+exports.DELETED_DATA = 'Data Deleted Successfully';
+exports.INVALID_DATA = 'Invalid Data';
