@@ -49,6 +49,7 @@ app.use(
   try {
     await connectDB();
     await getRedisClient();
+    
 
     server = app.listen(PORT, () => {
       console.log(`🚀 Server is running on port ${PORT}`);
